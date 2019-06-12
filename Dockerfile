@@ -123,7 +123,7 @@ RUN if [ "$nvidia_driver_link" != "" ]; then \
 RUN printf '\n\n Runnning Final Update.. \n\n'
 
 # Run a final update-upgrade routines
-RUN sudo apt-get update -y
+RUN sudo apt-get update -y \
 && sudo apt-get dist-upgrade -y
 
 
