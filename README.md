@@ -3,6 +3,10 @@ Run a docker container with Ubuntu 16.04, ROS Kinetic and V-REP 3.5.
 
 If you are not familiar with Docker, this is useful with you are in a host machine with a different stack than Ubuntu 16.04 and wants to run V-REP 5.0 with ROS Kinetic in a very easy and fast way, without having to change your machine configuration or operating system at all. You will run a docker container on top of your operating system kernel, not matter if you are running other versions of Ubuntu, Mac OS x, Debian, Fedora or even Microsoft Windows. You do not even need ROS or V-REP installed in your host machine.
 
+[Feedback/bug report/known issues](https://github.com/amreelab/docker-ros-kinetic-vrep-3.5/issues) and [Pull Requests](https://github.com/amreelab/docker-ros-kinetic-vrep-3.5/pulls) are most welcome!
+
+Follow the [release](https://github.com/amreelab/docker-ros-kinetic-vrep-3.5/releases) page to better understand the changelog and breaking changes of new versions.
+
 ## Getting started with Docker
 
 If you are not familiar with Docker, it's recommended you [try it out](https://www.docker.com/tryit/) with the online tutorial. 
