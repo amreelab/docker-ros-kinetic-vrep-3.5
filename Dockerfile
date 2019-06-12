@@ -113,7 +113,7 @@ RUN if [ "$nvidia_driver_link" != "" ]; then \
 	&& wget -P /tmp/ ${nvidia_driver_link} \
 	#Install the driver previously downloaded
         && chmod +x /tmp/${nvidia_driver} \
-	&& sudo sh /tmp/${nvidia_driver} -a -N --ui=none --no-kernel-module \
+	&& sudo sh /tmp/${nvidia_driver} -a --ui=none --no-kernel-module \
 	&& rm /tmp/${nvidia_driver} \
 ;fi
 #
@@ -124,7 +124,7 @@ RUN printf '\n\n Runnning Final Update.. \n\n'
 
 # Run a final update-upgrade routines
 RUN sudo apt-get update -y
-#&& sudo apt-get upgrade -y	#should not be used in dockerfiles due to versioning issues.
+&& sudo apt-get dist-upgrade -y
 
 
 #
