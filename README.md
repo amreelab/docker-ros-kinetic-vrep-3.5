@@ -1,24 +1,25 @@
 # docker-ros-kinetic-vrep-3.5
 Run a docker container with Ubuntu 16.04, ROS Kinetic and V-REP 3.5.
 
-If you are not familiar with Docker, this is useful with you are in a host machine with a different stack than Ubuntu 16.04 and wants to run V-REP 5.0 with ROS Kinetic in a very easy and fast way without having to change your machine configuration or operating system at all. You will run a docker container on top of your operating system kernel, that's all. You do not even need ROS or V-REP installed in your host machine.
+If you are not familiar with Docker, this is useful with you are in a host machine with a different stack than Ubuntu 16.04 and wants to run V-REP 5.0 with ROS Kinetic in a very easy and fast way, without having to change your machine configuration or operating system at all. You will run a docker container on top of your operating system kernel, not matter if you are running other versions of Ubuntu, Mac OS x, Debian, Fedora or even Microsoft Windows. You do not even need ROS or V-REP installed in your host machine.
 
 ## Getting started with Docker
 
 If you are not familiar with Docker, it's recommended you [try it out](https://www.docker.com/tryit/) with the online tutorial. 
 
-Before running this Dockerfile, you will have to complete install Docker as described in [Docker's installation instructions](https://docs.docker.com/installation/). Installation instructions are available for multiple operation systems including Ubuntu, Mac OS x, Debian, Fedora and even Microsoft Windows.
+Before running this Dockerfile, you will have to install Docker as described in [Docker's installation instructions](https://docs.docker.com/installation/). Installation instructions are available for multiple operating systems, such as Ubuntu, Mac OS x, Debian, Fedora and even Microsoft Windows.
 
 ## Running the docker container
 
-Once you have Docker installed, we can run following a simple sequence of steps:
+Once you have Docker installed, you can run the following sequence of steps:
 
 1. Clone this repository.
-2. Enter the directory to where files where clone. Ex:
+2. Enter the directory to where files where cloned. For instance:
 ```
 $ cd docker-ros-kinetic-vrep-3.5
 ```
 3. Build the docker container
+
 A. If you do not have an nvidia graphics card, run:
 ```
 $ sudo docker build -t ros-kinetic-vrep3-5:1.0 .
@@ -41,7 +42,7 @@ $ xhost +local:docker
 ```
 This command will forward the X control from the host machine, so you can run V-REP with GUI.
 
-5. Run a new container issuing the followin command:
+5. Run a new container issuing the following command:
 ```
 $ sudo docker run -it --name ros-kinetic-vrep3-5 --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/root/.Xauthority --privileged ros-kinetic-vrep3-5:1.0
 ```
@@ -56,7 +57,7 @@ $ roscore
 $ docker ps -l
 ```
 
-Using the name of the container as the ID, we can start additional bash session in the same container by running: 
+Using the name of the container as the ID, we can start an additional bash session in the same container by running: 
 ```
 $ docker exec -it ros-kinetic-vrep3-5 bash
 ```
@@ -69,7 +70,7 @@ and see that roscore is running and publishing both `rosout` and `rosout_agg` to
 
 7. V-REP: in this same new terminal, go to V-REP directoryL
 ```
-$ cd ~/cd V-REP_PRO_EDU_V3_5_0_Linux
+$ cd ~/V-REP_PRO_EDU_V3_5_0_Linux
 ```
 
 Run V-REP:
@@ -80,7 +81,7 @@ Run V-REP:
 
 If V-REP loads well, you should be able to test one ROS scene. Remember this V-REP is running inside the container, an instance of V-REP 5.0. 
 
-Go to File > Open Scene > Select and Open rosInterfaceTopicPublisherAndSubscriber.ttt. Run the scene. 
+Go to File > Open Scene > Select and Open `rosInterfaceTopicPublisherAndSubscriber.ttt`. Run the scene. 
 
 EXPECTED RESULT: A camera node trasmitting to a subscriber node, which is also a camera.
 
