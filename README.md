@@ -31,7 +31,7 @@ $ sudo docker build -t ros-kinetic-vrep3-5:1.0 . --build-arg nvidia_driver_link=
 
 The link can be found at [NVidia website](https://www.nvidia.com/Download/index.aspx?lang=en-us). Remember that the link
 passed should be related to the Linux version that is running inside the container. For instance, if you are running a Windows x64
-system with a GeForce RTX 2080 Ti, the link for the container would be:
+system with a GeForce RTX 2080 Ti, the link for the container would be (just an example, link may be outdated):
 ```
 <LINK>="http://us.download.nvidia.com/XFree86/Linux-x86_64/410.66/NVIDIA-Linux-x86_64-410.66.run"
 ```
@@ -54,12 +54,12 @@ $ roscore
 
 6. In a new terminal on the host machine, find the name of your new container, last container started using: 
 ```
-$ docker ps -l
+$ sudo docker ps -l
 ```
 
 Using the name of the container as the ID, we can start an additional bash session in the same container by running: 
 ```
-$ docker exec -it ros-kinetic-vrep3-5 bash
+$ sudo docker exec -it ros-kinetic-vrep3-5 bash
 ```
 
 We can then run a ROS command such as:
